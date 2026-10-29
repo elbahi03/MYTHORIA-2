@@ -5,31 +5,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="./assets/style/styling.css">
+    <script src="./js/modal.js" defer></script>
 </head>
 
-<body>
-    <div id="Modal" class="Modal">
-        <div class="modal-content" id="myfisrt">
-            <div class="Choisir">
-                <div class="choix">
-                    <button>
-                        <img src="./assets/img/sunn.png" height="200px" width="200px">
-                        <h2>la Lumière</h2>
+<body class=" bg-[url('./assets/img/bg-arena.jpg')] bg-no-repeat   bg-cover flex h-screen  justify-center">
+    <div id="Modal" class="modal fixed z-1 top-0 left-0 w-[100%] h-[100%] flex items-center justify-center m-auto"
+        style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-content bg-[url('./assets/img/carre_bg.png')] bg-center bg-no-repeat bg-cover bg-auto w-[600px] h-[600px] bg-cover m-auto  flex flex-col justify-center items-center" id="myfisrt">
+            <div class="Choisir flex gap-[10px] ">
+                <div class="choix flex flex-col">
+                    <img src="./assets/img/sunn.png" height="200px" width="200px">
+                    <button
+                        class="btn bg-[url('./assets/img/bg-boutton.png')] bg-no-repeat bg-cover bg-auto w-[200px] h-[80px] text-[white] mb-[20px] ease-[0.5s] hover:scale-[1.2]">
+                        la Lumière
                     </button>
                 </div>
                 <div class="choix">
-                    <button>
-                        <img src="./assets/img/monster.png" alt="" height="200px" width="200px">
-                        <h2>le Ténèbre</h2>
+                    <img src="./assets/img/monster.png" alt="" height="200px" width="200px">
+                    <button
+                        class="btn bg-[url('./assets/img/bg-boutton.png')] bg-no-repeat bg-cover bg-auto w-[200px] h-[80px] text-[white] mb-[20px] ease-[0.5s] hover:scale-[1.2]">
+                        le Ténèbre
                     </button>
                 </div>
             </div>
-            <h3>Choisir votre equipe :</h3>
-        </div>
-        <div class="modal-content" id="herfirst">
+            <h3 class="text-2xl text-[white]">Choisir votre equipe :</h3>
         </div>
     </div>
+    <!-- <div class="modal-content" id="herfirst">
+        </div> -->
+    <!-- <section> -->
+    <section id="joueur" class="joueur flex w-[100%]">
+        <div id="equipe" class="equipe w-[20%] flex flex-col justify-between gap-[400px] py-[50px] m-auto">
+            <div class="addversaire flex flex-col">
+                <div class="logo_addversaire ml-[120px] ">
+                    <h2 class="text-[40px] text-[white] ">
+                        addversaire
+                    </h2>
+                </div>
+                <div class="hp_addversaire flex justify-center items-center">
+                    <div class="flex gap-[10px] text-[white]">
+                        <svg width="32px" height="32px" viewBox="0 0 24.00 24.00" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" stroke="#ff0000" stroke-width="0.00024000000000000003">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"
+                                stroke="#CCCCCC" stroke-width="0.048"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25ZM5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L6.87359 5.81293C7.16648 6.10582 7.16648 6.5807 6.87359 6.87359C6.5807 7.16648 6.10582 7.16648 5.81293 6.87359L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967ZM18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L18.1871 6.87359C17.8942 7.16648 17.4193 7.16648 17.1264 6.87359C16.8335 6.5807 16.8335 6.10582 17.1264 5.81293L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967ZM1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12ZM19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12ZM6.87338 17.1266C7.16627 17.4195 7.16627 17.8944 6.87338 18.1873L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L5.81272 17.1266C6.10561 16.8337 6.58048 16.8337 6.87338 17.1266ZM17.1266 17.1266C17.4195 16.8337 17.8944 16.8337 18.1873 17.1266L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L17.1266 18.1873C16.8337 17.8944 16.8337 17.4195 17.1266 17.1266ZM12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z"
+                                    fill="#ff0000"></path>
+                                <path
+                                    d="M7 11.0595C7 13.6018 9.00971 14.9566 10.4809 16.1692C11 16.5971 11.5 17 12 17C12.5 17 13 16.5971 13.5191 16.1692C14.9903 14.9566 17 13.6018 17 11.0595C17 8.51718 14.2499 6.71421 12 9.15837C9.75008 6.71421 7 8.51718 7 11.0595Z"
+                                    fill="#ff0000"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <h2 class="text-[20px] text-[white]"><span>3000</span></h2>
+                </div>
+            </div>
+            <div>
+                <div class="logo_moi flex flex-col ml-[-10px]">
+                    <h2 class="text-[20px] ml-[120px] text-[40px] text-[white]">
+                        You
+                    </h2>
+                </div>
+                <div class="hp_moi flex justify-center items-center">
+                    <div class="flex gap-[10px]">
+                        <svg width="32px" height="32px" viewBox="0 0 24.00 24.00" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" stroke="#ff0000" stroke-width="0.00024000000000000003">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"
+                                stroke="#CCCCCC" stroke-width="0.048"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V4C12.75 4.41421 12.4142 4.75 12 4.75C11.5858 4.75 11.25 4.41421 11.25 4V2C11.25 1.58579 11.5858 1.25 12 1.25ZM5.46967 5.46967C5.76256 5.17678 6.23744 5.17678 6.53033 5.46967L6.87359 5.81293C7.16648 6.10582 7.16648 6.5807 6.87359 6.87359C6.5807 7.16648 6.10582 7.16648 5.81293 6.87359L5.46967 6.53033C5.17678 6.23744 5.17678 5.76256 5.46967 5.46967ZM18.5303 5.46967C18.8232 5.76256 18.8232 6.23744 18.5303 6.53033L18.1871 6.87359C17.8942 7.16648 17.4193 7.16648 17.1264 6.87359C16.8335 6.5807 16.8335 6.10582 17.1264 5.81293L17.4697 5.46967C17.7626 5.17678 18.2374 5.17678 18.5303 5.46967ZM1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H4C4.41421 11.25 4.75 11.5858 4.75 12C4.75 12.4142 4.41421 12.75 4 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12ZM19.25 12C19.25 11.5858 19.5858 11.25 20 11.25H22C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H20C19.5858 12.75 19.25 12.4142 19.25 12ZM6.87338 17.1266C7.16627 17.4195 7.16627 17.8944 6.87338 18.1873L6.53033 18.5303C6.23744 18.8232 5.76256 18.8232 5.46967 18.5303C5.17678 18.2374 5.17678 17.7626 5.46967 17.4697L5.81272 17.1266C6.10561 16.8337 6.58048 16.8337 6.87338 17.1266ZM17.1266 17.1266C17.4195 16.8337 17.8944 16.8337 18.1873 17.1266L18.5303 17.4697C18.8232 17.7626 18.8232 18.2374 18.5303 18.5303C18.2374 18.8232 17.7626 18.8232 17.4697 18.5303L17.1266 18.1873C16.8337 17.8944 16.8337 17.4195 17.1266 17.1266ZM12 19.25C12.4142 19.25 12.75 19.5858 12.75 20V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V20C11.25 19.5858 11.5858 19.25 12 19.25Z"
+                                    fill="#ff0000"></path>
+                                <path
+                                    d="M7 11.0595C7 13.6018 9.00971 14.9566 10.4809 16.1692C11 16.5971 11.5 17 12 17C12.5 17 13 16.5971 13.5191 16.1692C14.9903 14.9566 17 13.6018 17 11.0595C17 8.51718 14.2499 6.71421 12 9.15837C9.75008 6.71421 7 8.51718 7 11.0595Z"
+                                    fill="#ff0000"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <h2 class="text-[20px] text-[white]"><span>3000</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="table_jeux w-[70%] bg-[url('./assets/img/bg-tableau.png')] bg-no-repeat h-[100%]  bg-cover flex items-center justify-center">
+            <div class="table_cart flex flex-col w-[80%]">
+                <div class="deck_addversaire flex gap-[25px] mb-[20px] justify-center items-center">
+                    <div class="cart_deck_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                    <div class="cart_deck_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                    <div class="cart_deck_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                    <div class="cart_deck_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                    <div class="cart_deck_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                </div>
+                <div class="cart_playing bg-[url('./assets/img/table_jeux.png')] bg-no-repeat h-[100%]  bg-cover flex flex-col items-center justify-center">
+                    <div class="cote_addversaire flex flex-col gap-[10px] my-[10px]">
+                        <div class="defense_addversaire flex gap-[10px]">
+                            <div class="cart_deffence_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_deffence_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_deffence_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_deffence_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_deffence_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                        </div>
+                        <div class="attack_addversaire flex gap-[10px]">
+                            <div class="cart_attack_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_attack_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_attack_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_attack_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_attack_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                        </div>
+                    </div>
+                    <div class="cote_moi flex flex-col gap-[10px] my-[10px]">
+                        <div class="attack_moi flex gap-[10px]">
+                            <div class="cart_deffence_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_deffence_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_deffence_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_deffence_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_deffence_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                        </div>
+                        <div class="defense_attack flex gap-[10px]">
+                             <div class="cart_attack_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_attack_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_attack_vs w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_attack_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                            <div class="cart_attack_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="deck_moi flex gap-[25px] mb-[10px] justify-center items-center mt-[20px]">
+                    <div class="cart_deck_moi  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                    <div class="cart_deck_moi  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                    <div class="cart_deck_moi  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                    <div class="cart_deck_moi  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                    <div class="cart_deck_moi  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                </div>
+            </div>
+            <div class="carts flex flex-col gap-[100px]">
+                <div class="cart_addversaire">
+                    <div class="cart_stock_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                </div>
+                <div class="cart_moi">
+                    <div class="cart_stock_vs  w-[75px] h-[100px] bg-[white] rounded-lg"></div>
+                </div>
+            </div>
+        </div>
+        <div class="time w-[10%] flex flex-col justify-center items-center">
+            <h2 class="text-2xl">00 : 00</h2>
+        </div>
+    </section>
+    <!-- </section> -->
+
 </body>
 
 </html>
