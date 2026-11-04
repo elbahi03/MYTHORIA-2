@@ -1,31 +1,25 @@
 // les donnes de les joueurs :
+
 const moi = {
     nom : "batal",
     moncart : [] ,
     deck : [],
-    equipe : []
+    equipe 
 }
 
-localStorage.setItem('moi', moi);
 
 const adversaire = {
     nom : "l3adow",
     moncart : [] ,
     deck : [],
-    equipe : []
+    equipe 
 }
 
-localStorage.setItem('adversaire', adversaire);
+moi.moncart = JSON.parse(localStorage.getItem('mycartes'));
+moi.deck = JSON.parse(localStorage.getItem('mydeck'));
+adversaire.moncart = JSON.parse(localStorage.getItem('mycartes'));
 
-
-moi.moncart = localStorage.getItem('mycartes');
-moi.moncart = JSON.parse(moi.moncart);
-moi.deck = localStorage.getItem('mydeck');
-moi.deck = JSON.parse(moi.deck);
-
-adversaire.moncart = localStorage.getItem('mycartes');
-adversaire.moncart = JSON.parse(moi.moncart);
-
+// donnes de les joueurs :
 while (adversaire.deck.length < 5) {
     let num = Math.floor(Math.random() * 40 )
     if(adversaire.deck.indexOf(num) === -1){
@@ -35,4 +29,4 @@ while (adversaire.deck.length < 5) {
     }   
 }
 
-export {moi, adversaire} from "state.js";
+export {moi, adversaire};
