@@ -1,13 +1,20 @@
 import { aleratoire, auto_equipe_add, auto_equipe_moi } from "./turns.js";
 import { choisir_equipe, take_equipe } from "./ui.js";
 import { moi, adversaire } from "./state.js";
+import { getjson } from "./cards.js";
 
 console.log("hello world")
 
+let cardd = []
+cardd = await getjson();
+console.log("--------------------------------")
+console.log(cardd);
+console.log("--------------------------------")
 
 console.log(moi)
 console.log(adversaire)
 const Modal = document.querySelector("#Modal");
+const deck_vs = document.querySelector("#deck_vs");
 
 // const btn = document.querySelector(".btn");
 
@@ -36,7 +43,7 @@ dialog.addEventListener("click", (e) => {
             dialog.style.display = "none";
             let etat = auto_equipe_add(ale);
             adversaire.equipe = etat[0]
-            moi.equipe  = etat[1];
+            moi.equipe = etat[1];
             adversaire.equipe = etat[0];
             localStorage.setItem("moi", JSON.stringify(moi))
             localStorage.setItem("adversaire", JSON.stringify(adversaire))
