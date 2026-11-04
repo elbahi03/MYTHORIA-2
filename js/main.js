@@ -1,20 +1,20 @@
 import { aleratoire, auto_equipe_add, auto_equipe_moi } from "./turns.js";
-import { choisir_equipe, take_equipe } from "./ui.js";
-import { moi, adversaire } from "./state.js";
-import { getjson } from "./cards.js";
+import { choisir_equipe, take_equipe, affiche_deck_vs, affiche_deck_moi } from "./ui.js";
+// import { moi, adversaire } from "./state.js";
+import { getjson, cardd } from "./cards.js";
 
-console.log("hello world")
 
-let cardd = []
-cardd = await getjson();
-console.log("--------------------------------")
-console.log(cardd);
-console.log("--------------------------------")
+const moi = JSON.parse(localStorage.getItem("moi"));
+const advversaire = JSON.parse(localStorage.getItem("adversaire"))
 
-console.log(moi)
-console.log(adversaire)
+
+
+
 const Modal = document.querySelector("#Modal");
 const deck_vs = document.querySelector("#deck_vs");
+
+affiche_deck_vs(advversaire, cardd)
+affiche_deck_moi(moi, cardd)
 
 // const btn = document.querySelector(".btn");
 
@@ -42,14 +42,11 @@ dialog.addEventListener("click", (e) => {
             dialog.close();
             dialog.style.display = "none";
             let etat = auto_equipe_add(ale);
-            adversaire.equipe = etat[0]
+            advversaire.equipe = etat[0]
             moi.equipe = etat[1];
-            adversaire.equipe = etat[0];
+            advversaire.equipe = etat[0];
             localStorage.setItem("moi", JSON.stringify(moi))
             localStorage.setItem("adversaire", JSON.stringify(adversaire))
-            console.log(moi)
-            console.log(adversaire)
-            console.log(auto_equipe_add(ale))
         }
     }
     else {
@@ -69,28 +66,21 @@ Modal.addEventListener('click', (e) => {
     if (e.target.classList.contains(`btn`)) {
         let equipe = e.target.name;
         Modal.style.display = "none";
-        console.log(e.target.name);
         if (equipe === "la Lumière") {
             let etat = ["la Lumière", "le Ténèbre"];
             moi.equipe = etat[0];
-            adversaire.equipe = etat[1];
+            advversaire.equipe = etat[1];
             localStorage.setItem("moi", JSON.stringify(moi));
-            localStorage.setItem("adversaire", JSON.stringify(adversaire));
-            console.log(moi)
-            console.log(adversaire)
+            localStorage.setItem("adversaire", JSON.stringify(advversaire));
         } else {
             let etat = ["le Ténèbre", "la Lumière"];
             moi.equipe = etat[0];
-            adversaire.equipe = etat[1];
+            advversaire.equipe = etat[1];
             localStorage.setItem("moi", JSON.stringify(moi));
-            localStorage.setItem("adversaire", JSON.stringify(adversaire));
-            console.log(moi)
-            console.log(adversaire)
+            localStorage.setItem("adversaire", JSON.stringify(advversaire));
         }
     }
 })
-
-
 
 
 

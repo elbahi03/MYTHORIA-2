@@ -1,5 +1,6 @@
 import { aleratoire } from "./turns.js";
-
+// import { moi, adversaire } from "./state.js";
+import { getjson, cardd } from "./cards.js";
 
 export function choisir_equipe(aleratoire) {
     let ale = aleratoire
@@ -41,4 +42,43 @@ export function take_equipe() {
             }
         }
     })
+}
+
+export function affiche_deck_vs(adversaire, cardd) {
+    const deck_vs = document.querySelector("#deck_vs");
+    deck_vs.textContent = "";
+    for (let i = 0; i < adversaire.deck.length; i++) {
+        const div = document.createElement("div");
+        div.id = `cart_deck_vs_${i}`;
+        div.className = "cart_deck_vs  w-[75px] h-[100px]  rounded-lg"
+        const img = document.createElement("img");
+        img.src = cardd[adversaire.deck[i] -1].imga;
+        img.alt = cardd[adversaire.deck[i] -1].nom + " : " + cardd[adversaire.deck[i] - 1].description;
+        img.style.width = "75px";
+        img.style.height = "100px";
+        img.style.objectFit = "cover";
+        img.className = "cart_deck_vs";
+        img.dataset.name = `${adversaire.deck[i]}`;
+        div.appendChild(img)
+        deck_vs.append(div)
+    }
+}
+
+export function affiche_deck_moi(moi, cardd) {
+    const deck_moi = document.querySelector("#deck_moi");
+    for (let i = 0; i < moi.deck.length; i++) {
+        const div = document.createElement("div");
+        div.id = `cart_deck_moi_${i}`;
+        div.className = "cart_moi_vs  w-[75px] h-[100px]  rounded-lg";
+        const img = document.createElement("img");
+        img.src = cardd[moi.deck[i] -1].imga;
+        img.alt = cardd[moi.deck[i] -1].nom + " : " + cardd[moi.deck[i] - 1].description;
+        img.style.width = "75px";
+        img.style.height = "100px";
+        img.style.objectFit = "cover";
+        img.className = "cart_deck_moi";
+        img.dataset.name = `${moi.deck[i]}`;
+        div.appendChild(img);
+        deck_moi.append(div);
+    }
 }

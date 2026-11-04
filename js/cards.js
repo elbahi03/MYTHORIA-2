@@ -7,3 +7,5 @@ export async function getjson() {
         console.log(error);
     }
 }
+
+export const cardd = await getjson();

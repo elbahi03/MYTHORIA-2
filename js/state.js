@@ -28,5 +28,7 @@ while (adversaire.deck.length < 5) {
         continue;
     }   
 }
+localStorage.setItem("adversaire", JSON.stringify(adversaire))
+localStorage.setItem("moi", JSON.stringify(moi))
 
 export {moi, adversaire};
