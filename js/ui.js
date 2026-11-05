@@ -52,7 +52,7 @@ export function affiche_deck_vs(adversaire, cardd) {
         div.id = `cart_deck_vs_${adversaire.deck[i]}`;
         div.className = "cart_deck_vs  w-[75px] h-[100px]  rounded-lg"
         const img = document.createElement("img");
-        img.src = cardd[adversaire.deck[i] -1].imga;
+        img.src = "https://i.pinimg.com/736x/f5/de/2f/f5de2f54d23f3dcf33baf20a56bc7b1d.jpg";
         img.alt = cardd[adversaire.deck[i] -1].nom + " : " + cardd[adversaire.deck[i] - 1].description;
         img.style.width = "75px";
         img.style.height = "100px";
