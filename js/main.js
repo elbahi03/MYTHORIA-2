@@ -1,5 +1,5 @@
 import { aleratoire, auto_equipe_add, auto_equipe_moi } from "./turns.js";
-import { choisir_equipe, take_equipe, affiche_deck_vs, affiche_deck_moi } from "./ui.js";
+import { choisir_equipe, take_equipe, affiche_deck_vs, affiche_deck_moi, affiche_equipe } from "./ui.js";
 // import { moi, adversaire } from "./state.js";
 import { getjson, cardd } from "./cards.js";
 
@@ -46,7 +46,8 @@ dialog.addEventListener("click", (e) => {
             moi.equipe = etat[1];
             advversaire.equipe = etat[0];
             localStorage.setItem("moi", JSON.stringify(moi))
-            localStorage.setItem("adversaire", JSON.stringify(adversaire))
+            localStorage.setItem("adversaire", JSON.stringify(advversaire))
+            affiche_equipe(moi, advversaire);
         }
     }
     else {
@@ -72,12 +73,14 @@ Modal.addEventListener('click', (e) => {
             advversaire.equipe = etat[1];
             localStorage.setItem("moi", JSON.stringify(moi));
             localStorage.setItem("adversaire", JSON.stringify(advversaire));
+            affiche_equipe(moi, advversaire);
         } else {
             let etat = ["le Ténèbre", "la Lumière"];
             moi.equipe = etat[0];
             advversaire.equipe = etat[1];
             localStorage.setItem("moi", JSON.stringify(moi));
             localStorage.setItem("adversaire", JSON.stringify(advversaire));
+            affiche_equipe(moi, advversaire);
         }
     }
 })

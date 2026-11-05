@@ -82,3 +82,11 @@ export function affiche_deck_moi(moi, cardd) {
         deck_moi.append(div);
     }
 }
+
+export function affiche_equipe(moi, adversaire){
+    const span_moi = document.querySelector("#moi_equipe_span");
+    const span_vs = document.querySelector("#addversaire_equipe_span");
+
+    span_moi.textContent = moi.equipe;
+    span_vs.textContent = adversaire.equipe;
+}
