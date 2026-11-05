@@ -1,5 +1,5 @@
 import { aleratoire, auto_equipe_add, auto_equipe_moi } from "./turns.js";
-import { choisir_equipe, take_equipe, affiche_deck_vs, affiche_deck_moi, affiche_equipe } from "./ui.js";
+import { choisir_equipe, take_equipe, affiche_deck_vs, affiche_deck_moi, affiche_equipe, dialog_choisir, choix_play , kkkk} from "./ui.js";
 // import { moi, adversaire } from "./state.js";
 import { getjson, cardd } from "./cards.js";
 
@@ -12,6 +12,7 @@ const advversaire = JSON.parse(localStorage.getItem("adversaire"))
 
 const Modal = document.querySelector("#Modal");
 const deck_vs = document.querySelector("#deck_vs");
+const deck_moi = document.querySelector('#deck_moi')
 
 affiche_deck_vs(advversaire, cardd)
 affiche_deck_moi(moi, cardd)
@@ -82,6 +83,24 @@ Modal.addEventListener('click', (e) => {
             localStorage.setItem("adversaire", JSON.stringify(advversaire));
             affiche_equipe(moi, advversaire);
         }
+    }
+})
+
+deck_moi.addEventListener('click', (e)=>{
+    if(e.target.classList.contains('cart_deck_moi')){
+        dialog_choisir();
+        let id_cart = e.target.dataset.name;
+        console.log(e.target.dataset.name);
+        console.log(e.target.parentElement);
+        console.log(e.target.parentElement.id);
+        
+        const dialog_choix = document.querySelector("#choisir_place");
+        console.log(dialog_choix);
+
+        kkkk(choix_play, id_cart);
+        const nme_id = e.target.parentElement.id
+        const div = document.querySelector("#"+ nme_id);
+        div.remove();     
     }
 })
 
