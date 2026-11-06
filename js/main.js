@@ -1,12 +1,13 @@
 import { aleratoire, auto_equipe_add, auto_equipe_moi } from "./turns.js";
-import { choisir_equipe, take_equipe, affiche_deck_vs, affiche_deck_moi, affiche_equipe, dialog_choisir, choix_play , kkkk} from "./ui.js";
+import { choisir_equipe, take_equipe, affiche_deck_vs, affiche_deck_moi, affiche_equipe, dialog_choisir, choix_play , affiche_dialog, move_cart} from "./ui.js";
 // import { moi, adversaire } from "./state.js";
 import { getjson, cardd } from "./cards.js";
+import { max_diff, max_att, id_for_play, aleratoire_choix} from "./opponent.js";
+
 
 
 const moi = JSON.parse(localStorage.getItem("moi"));
 const advversaire = JSON.parse(localStorage.getItem("adversaire"))
-
 
 
 
@@ -97,10 +98,10 @@ deck_moi.addEventListener('click', (e)=>{
         const dialog_choix = document.querySelector("#choisir_place");
         console.log(dialog_choix);
 
-        kkkk(choix_play, id_cart);
+        affiche_dialog(choix_play, id_cart, id_for_play, cardd, max_diff, max_att, aleratoire_choix);
         const nme_id = e.target.parentElement.id
         const div = document.querySelector("#"+ nme_id);
-        div.remove();     
+        div.remove();    
     }
 })
 
