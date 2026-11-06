@@ -37,6 +37,13 @@ export function traitement_cart_jeux(cart_moi, deck){
     return game ;
 }
 
-export function traitement_cart_jeux_vs(){
 
+export function cart_stoke(moi){
+    console.log(moi.moncart.length);
+    let index = Math.floor( Math.random()* moi.moncart.length) ;
+    let id = moi.moncart[index];
+    moi.moncart.splice(index, 1);
+    console.log(moi.moncart.length);
+    localStorage.setItem("moi", JSON.stringify(moi));
+    return id ;
 }

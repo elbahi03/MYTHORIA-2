@@ -24,7 +24,6 @@ moi.moncart = traitement_cart_jeux(moncart, moi.deck);
 // export let cart_moi_game = [...moi.moncart];
 
 
-// donnes de les joueurs :
 while (adversaire.deck.length < 5) {
     let num = (Math.floor(Math.random() * 40 )) + 1;
     if(adversaire.deck.indexOf(num) === -1){

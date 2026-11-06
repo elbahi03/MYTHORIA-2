@@ -6,27 +6,28 @@ console.log(copier);
 
 /// bismi allah
 
-export function id_for_play( cart, max_diff, max_att, aleratoire_choix ){
+export function id_for_play( cardd, max_diff, max_att, aleratoire_choix ){
     
     const hp_vs = document.querySelector("#hp__vs");
     let hp_vvs = Number(hp_vs.textContent);
     const hp_moi = document.querySelector("#hp_moi");
     let hp_mmoi = Number(hp_moi.textContent);
+    console.log(hp_vvs , hp_mmoi );
     
     if( hp_mmoi < hp_vvs){
-        return max_att(cart);
+        return max_att(cardd);
     }else if( hp_mmoi > hp_vvs ){
-        return max_diff(cart);
+        return max_diff(cardd);
     }else {
         return aleratoire_choix();
     }
 }
 
-export function max_diff(cart){
+export function max_diff(cardd){
     let max = -Infinity;
     let index = 0;
     for(let i = 0 ; i < copier.length ; i++ ){
-        if( cart[copier[i] - 1].defence > max){
+        if( cardd[copier[i] - 1].defence > max){
             max = copier[i]
             index = i;
         }
@@ -35,11 +36,11 @@ export function max_diff(cart){
     return [max , "defence"] ;
 }
 
-export function max_att(cart){
+export function max_att(cardd){
     let max = -Infinity;
     let index = 0;
     for(let i = 0 ; i < copier.length ; i++ ){
-        if( cart[copier[i] - 1].defence > max){
+        if( cardd[copier[i] - 1].defence > max){
             max = copier[i]
             index = i;
         }

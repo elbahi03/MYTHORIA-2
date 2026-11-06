@@ -1,7 +1,7 @@
 import { aleratoire, auto_equipe_add, auto_equipe_moi } from "./turns.js";
-import { choisir_equipe, take_equipe, affiche_deck_vs, affiche_deck_moi, affiche_equipe, dialog_choisir, choix_play , affiche_dialog, move_cart} from "./ui.js";
+import { choisir_equipe, take_equipe, affiche_deck_vs, affiche_deck_moi, affiche_equipe, dialog_choisir, choix_play , affiche_dialog, choix_playstock, choix_place } from "./ui.js";
 // import { moi, adversaire } from "./state.js";
-import { getjson, cardd } from "./cards.js";
+import { getjson, cardd, cart_stoke } from "./cards.js";
 import { max_diff, max_att, id_for_play, aleratoire_choix} from "./opponent.js";
 
 
@@ -17,7 +17,8 @@ console.log(advversaire.deck);
 
 const Modal = document.querySelector("#Modal");
 const deck_vs = document.querySelector("#deck_vs");
-const deck_moi = document.querySelector('#deck_moi')
+const deck_moi = document.querySelector('#deck_moi');
+const cart_stoke_moi = document.querySelector("#cart_stoke_moi");
 
 affiche_deck_vs(advversaire, cardd)
 affiche_deck_moi(moi, cardd)
@@ -109,6 +110,9 @@ deck_moi.addEventListener('click', (e)=>{
     }
 })
 
-
+cart_stoke_moi.addEventListener( "click", (e)=>{
+    choix_playstock(cart_stoke, moi, cardd);
+    choix_place(id_for_play, cardd, max_diff, max_att, aleratoire_choix)
+})
 
 

@@ -1,7 +1,7 @@
 import { aleratoire } from "./turns.js";
 // import { moi, adversaire } from "./state.js";
 import { getjson, cardd } from "./cards.js";
-import { max_diff, max_att, id_for_play} from "./opponent.js";
+import { max_diff, max_att, id_for_play } from "./opponent.js";
 
 export function choisir_equipe(aleratoire) {
     let ale = aleratoire
@@ -54,7 +54,7 @@ export function affiche_deck_vs(adversaire, cardd) {
         div.className = "cart_deck_vs  w-[75px] h-[100px]  rounded-lg"
         const img = document.createElement("img");
         img.src = "https://i.pinimg.com/736x/f5/de/2f/f5de2f54d23f3dcf33baf20a56bc7b1d.jpg";
-        img.alt = cardd[adversaire.deck[i] -1].nom + " : " + cardd[adversaire.deck[i] - 1].description;
+        img.alt = cardd[adversaire.deck[i] - 1].nom + " : " + cardd[adversaire.deck[i] - 1].description;
         img.style.width = "75px";
         img.style.height = "100px";
         img.style.objectFit = "cover";
@@ -69,11 +69,11 @@ export function affiche_deck_moi(moi, cardd) {
     const deck_moi = document.querySelector("#deck_moi");
     for (let i = 0; i < moi.deck.length; i++) {
         const div = document.createElement("div");
-        div.id = `cart_deck_moi_${moi.deck[i]}`; 
+        div.id = `cart_deck_moi_${moi.deck[i]}`;
         div.className = "cart_moi_vs  w-[75px] h-[100px]  rounded-lg";
         const img = document.createElement("img");
-        img.src = cardd[moi.deck[i] -1].imga;
-        img.alt = cardd[moi.deck[i] -1].nom + " : " + cardd[moi.deck[i] - 1].description;
+        img.src = cardd[moi.deck[i] - 1].imga;
+        img.alt = cardd[moi.deck[i] - 1].nom + " : " + cardd[moi.deck[i] - 1].description;
         img.style.width = "75px";
         img.style.height = "100px";
         img.style.objectFit = "cover";
@@ -84,7 +84,7 @@ export function affiche_deck_moi(moi, cardd) {
     }
 }
 
-export function affiche_equipe(moi, adversaire){
+export function affiche_equipe(moi, adversaire) {
     const span_moi = document.querySelector("#moi_equipe_span");
     const span_vs = document.querySelector("#addversaire_equipe_span");
 
@@ -92,7 +92,7 @@ export function affiche_equipe(moi, adversaire){
     span_vs.textContent = adversaire.equipe;
 }
 
-export function dialog_choisir(){
+export function dialog_choisir() {
     const body = document.querySelector("body")
     const dialog = document.createElement("dialog");
     const button_attack = document.createElement("button");
@@ -107,8 +107,8 @@ export function dialog_choisir(){
     button_attack.className = "btn bg-[url('./assets/img/bg-boutton.png')] bg-no-repeat bg-cover bg-auto w-[200px] h-[80px] text-[white] mb-[20px] ease-[0.5s] hover:scale-[1.2]";
     button_attack.name = "attack";
 
-    button_deffence.id ="deffence_btn";
-    button_deffence.textContent= "Deffence";
+    button_deffence.id = "deffence_btn";
+    button_deffence.textContent = "Deffence";
     button_deffence.className = "btn bg-[url('./assets/img/bg-boutton.png')] bg-no-repeat bg-cover bg-auto w-[200px] h-[80px] text-[white] mb-[20px] ease-[0.5s] hover:scale-[1.2]";
     button_deffence.name = "deffence";
 
@@ -118,67 +118,67 @@ export function dialog_choisir(){
     dialog.showModal();
 }
 
-export function choix_play(choix, id, cardd){
-    if( choix === "attack" ){
+export function choix_play(choix, id, cardd) {
+    if (choix === "attack") {
         const cart_attack_moi = document.querySelector("#attack_place");
         const img = document.createElement("img");
-        img.src = cardd[id -1].imga;
-        img.alt = cardd[id -1].nom + " : " + cardd[id - 1].description;
+        img.src = cardd[id - 1].imga;
+        img.alt = cardd[id - 1].nom + " : " + cardd[id - 1].description;
         img.style.width = "75px";
         img.style.height = "100px";
         img.style.objectFit = "cover";
         img.className = "cart_att_moi";
         img.dataset.name = `${id}`;
-        
+
         cart_attack_moi.appendChild(img);
         cart_attack_moi.id = "attack_plain";
-        cart_attack_moi.name = `${cardd[id -1].attaque}`;
-    }else {
+        cart_attack_moi.name = `${cardd[id - 1].attaque}`;
+    } else {
         const cart_attack_moi = document.querySelector("#deffence_place");
         const img = document.createElement("img");
-        img.src = cardd[id -1].imga;
-        img.alt = cardd[id -1].nom + " : " + cardd[id - 1].description;
+        img.src = cardd[id - 1].imga;
+        img.alt = cardd[id - 1].nom + " : " + cardd[id - 1].description;
         img.style.width = "75px";
         img.style.height = "100px";
         img.style.objectFit = "cover";
         img.className = "cart_deff_moi";
         img.dataset.name = `${id}`;
-        
+
         cart_attack_moi.appendChild(img);
         cart_attack_moi.id = "deffence_plain";
-        cart_attack_moi.name = `${cardd[id -1].attaque}`;
+        cart_attack_moi.name = `${cardd[id - 1].attaque}`;
     }
 }
 
-export function affiche_dialog(choix_play, id_cart, id_for_play, cardd, max_diff, max_att, aleratoire_choix){
+export function affiche_dialog(choix_play, id_cart, id_for_play, cardd, max_diff, max_att, aleratoire_choix) {
     const dialog_choix = document.querySelector("#choisir_place");
-    dialog_choix.addEventListener('click', (e)=>{
-            console.log("kkkkkkkkkkkkkkkkkkkkk");
-            
-            console.log(e.target.classList.contains('btn'));
-            if(e.target.classList.contains('btn')){
-                let choix = e.target.name;
-                choix_play(choix, id_cart, cardd)
-                dialog_choix.remove();
-                move_cart(id_for_play, cardd, max_diff, max_att, aleratoire_choix); 
-            }
-        })
+    dialog_choix.addEventListener('click', (e) => {
+        console.log("kkkkkkkkkkkkkkkkkkkkk");
+
+        console.log(e.target.classList.contains('btn'));
+        if (e.target.classList.contains('btn')) {
+            let choix = e.target.name;
+            choix_play(choix, id_cart, cardd)
+            dialog_choix.remove();
+            move_cart(id_for_play, cardd, max_diff, max_att, aleratoire_choix);
+        }
+    })
 }
 
-export function move_cart(id_for_play,cardd, max_diff, max_att, aleratoire_choix){
+export function move_cart(id_for_play, cardd, max_diff, max_att, aleratoire_choix) {
     let id_cart = id_for_play(cardd, max_diff, max_att, aleratoire_choix);
     const diiv = document.querySelectorAll(".cart_deck_vs")
     console.log(diiv);
     const div = document.querySelector(`#cart_deck_vs_${id_cart[0]}`);
-    console.log("cart id : " +  id_cart[0]);
+    console.log("cart id : " + id_cart[0]);
     console.log(div);
-    
+
     div.remove();
-    if(id_cart[1] === "attaque"){
+    if (id_cart[1] === "attaque") {
         const div_cart = document.querySelector("#attack_place_vs");
         const img = document.createElement("img");
-        img.src = cardd[id_cart[0] -1].imga;
-        img.alt = cardd[id_cart[0] -1].nom + " : " + cardd[id_cart[0] - 1].description;
+        img.src = cardd[id_cart[0] - 1].imga;
+        img.alt = cardd[id_cart[0] - 1].nom + " : " + cardd[id_cart[0] - 1].description;
         img.style.width = "75px";
         img.style.height = "100px";
         img.style.objectFit = "cover";
@@ -189,11 +189,11 @@ export function move_cart(id_for_play,cardd, max_diff, max_att, aleratoire_choix
         div_cart.id = "attaque_plain_vs";
         div_cart.name = `${cardd[id_cart[0] - 1].attaque}`;
         div.remove()
-    }else {
+    } else {
         const div_cart = document.querySelector("#deffence_place_vs");
         const img = document.createElement("img");
-        img.src = cardd[id_cart[0] -1].imga;
-        img.alt = cardd[id_cart[0] -1].nom + " : " + cardd[id_cart[0] - 1].description;
+        img.src = cardd[id_cart[0] - 1].imga;
+        img.alt = cardd[id_cart[0] - 1].nom + " : " + cardd[id_cart[0] - 1].description;
         img.style.width = "75px";
         img.style.height = "100px";
         img.style.objectFit = "cover";
@@ -205,6 +205,101 @@ export function move_cart(id_for_play,cardd, max_diff, max_att, aleratoire_choix
         div_cart.name = `${cardd[id_cart[0] - 1].defence}`;
         div.remove();
     }
-    
 
+
+}
+
+export function choix_playstock(cart_stoke, moi, cardd) {
+    let id = cart_stoke(moi);
+    const body = document.querySelector("body");
+    const dialog = document.createElement("dialog");
+    const img = document.createElement("img");
+    const divv = document.createElement("div");
+    const button_attack = document.createElement("button");
+    const button_deffence = document.createElement("button");
+
+    dialog.id = "choisir_place";
+    dialog.className = "bg-[url('./assets/img/carre_bg.png')] flex flex-col bg-center bg-no-repeat bg-cover bg-auto bg-cover m-auto  justify-center items-center w-[600px] h-[600px]";
+    dialog.style.display = "flex";
+
+    img.src = cardd[id - 1].imga;
+    img.alt = cardd[id - 1].nom + " : " + cardd[id - 1].description;
+    img.style.width = "200px";
+    img.style.height = "290px";
+    img.style.objectFit = "cover";
+    img.className = "cart_aleratoire_play mb-[50px]";
+    img.dataset.name = `${id}`;
+
+    divv.className = "flex justify-center items-center";
+
+    button_attack.id = "attack_btn";
+    button_attack.textContent = "Attack";
+    button_attack.className = "btn bg-[url('./assets/img/bg-boutton.png')] bg-no-repeat bg-cover bg-auto w-[200px] h-[80px] text-[white] mb-[20px] ease-[0.5s] hover:scale-[1.2]";
+    button_attack.name = "attack";
+
+    button_deffence.id = "deffence_btn";
+    button_deffence.textContent = "Deffence";
+    button_deffence.className = "btn bg-[url('./assets/img/bg-boutton.png')] bg-no-repeat bg-cover bg-auto w-[200px] h-[80px] text-[white] mb-[20px] ease-[0.5s] hover:scale-[1.2]";
+    button_deffence.name = "deffence";
+
+    divv.appendChild(button_attack);
+    divv.appendChild(button_deffence);
+    dialog.appendChild(img);
+    dialog.appendChild(divv);
+    body.appendChild(dialog);
+    dialog.showModal();
+}
+
+export function choixTactique_playstock(choix, id, cardd) {
+    console.log(cardd);
+    
+    console.log(choix, id);
+    
+    if (choix === "attack") {
+        const cart_attack_moi = document.querySelector("#attack_place");
+        const img = document.createElement("img");
+        console.log(cardd);
+        console.log("arr : ",cardd[id - 1]);
+        console.log("src : ",cardd[id - 1].imga);
+        img.src = cardd[id - 1].imga;
+        img.alt = cardd[id - 1].nom + " : " + cardd[id - 1].description;
+        img.style.width = "75px";
+        img.style.height = "100px";
+        img.style.objectFit = "cover";
+        img.className = "cart_att_moi";
+        img.dataset.name = `${id}`;
+
+        cart_attack_moi.appendChild(img);
+        cart_attack_moi.id = "attack_plain";
+        cart_attack_moi.name = `${cardd[id - 1].attaque}`;
+    } else {
+        const cart_attack_moi = document.querySelector("#deffence_place");
+        const img = document.createElement("img");
+        img.src = cardd[id - 1].imga;
+        img.alt = cardd[id - 1].nom + " : " + cardd[id - 1].description;
+        img.style.width = "75px";
+        img.style.height = "100px";
+        img.style.objectFit = "cover";
+        img.className = "cart_deff_moi";
+        img.dataset.name = `${id}`;
+
+        cart_attack_moi.appendChild(img);
+        cart_attack_moi.id = "deffence_plain";
+        cart_attack_moi.name = `${cardd[id - 1].attaque}`;
+    }
+}
+
+
+export function choix_place(id_for_play, cardd, max_diff, max_att, aleratoire_choix){
+    const dialog = document.querySelector("#choisir_place");
+    const img = document.querySelector('.cart_aleratoire_play');
+    let id = Number(img.dataset.name)
+    dialog.addEventListener( "click", (e)=>{
+        if(e.target.classList.contains("btn")){
+            let choix = e.target.name;
+            choixTactique_playstock(choix, id, cardd);
+            dialog.remove();
+            move_cart(id_for_play, cardd, max_diff, max_att, aleratoire_choix);
+        }
+    })
 }
