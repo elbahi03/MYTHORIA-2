@@ -10,6 +10,22 @@ export async function getjson() {
 
 export const cardd = await getjson();
 
+// function affiche(cardd) {
+//     console.log("mycartes =", cardd);
+//     console.log("cartes =", cardd);
+
+//     for (let i = 0; i < cardd.length; i++) {
+//         console.log("Loop index:", i+1);
+//         console.log("Value:", cardd[i]);
+//         console.log("img : ", cardd[i].imga);
+        
+
+//         if (cardd[i] === undefined) {
+//             console.error("PROBLEM: No card found for:", cardd[i]);
+//         }
+//     }
+// }
+// affiche(cardd)
 
 export function traitement_cart_jeux(cart_moi, deck){
     let game = [];
@@ -22,5 +38,5 @@ export function traitement_cart_jeux(cart_moi, deck){
 }
 
 export function traitement_cart_jeux_vs(){
-    
+
 }
