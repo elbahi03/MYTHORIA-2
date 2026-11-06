@@ -26,7 +26,7 @@ moi.moncart = traitement_cart_jeux(moncart, moi.deck);
 
 // donnes de les joueurs :
 while (adversaire.deck.length < 5) {
-    let num = Math.floor(Math.random() * 40 )
+    let num = (Math.floor(Math.random() * 40 )) + 1;
     if(adversaire.deck.indexOf(num) === -1){
         adversaire.deck.push(num);
     }else {
