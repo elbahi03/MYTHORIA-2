@@ -1,4 +1,9 @@
-let copier = [...JSON.parse(localStorage.getItem("adversaire")).deck];
+// import { arr } from "./main.js"
+import { adversaire } from "./state.js"
+// let copier = [...JSON.parse(localStorage.getItem("adversaire")).deck];
+let copier = [...adversaire.deck]
+console.log(copier);
+
 /// bismi allah
 
 export function id_for_play( cart, max_diff, max_att, aleratoire_choix ){
@@ -54,6 +59,7 @@ export function aleratoire_choix(){
     let id = copier[index]
     copier.splice(index, 1 );
     console.log(copier);
+    console.log(id);
     console.log("-------------------");
     if ( tactique === 0 ){
         return [id, "attaque"];

@@ -167,6 +167,8 @@ export function affiche_dialog(choix_play, id_cart, id_for_play, cardd, max_diff
 
 export function move_cart(id_for_play,cardd, max_diff, max_att, aleratoire_choix){
     let id_cart = id_for_play(cardd, max_diff, max_att, aleratoire_choix);
+    const diiv = document.querySelectorAll(".cart_deck_vs")
+    console.log(diiv);
     const div = document.querySelector(`#cart_deck_vs_${id_cart[0]}`);
     console.log("cart id : " +  id_cart[0]);
     console.log(div);

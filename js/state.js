@@ -1,4 +1,5 @@
 // les donnes de les joueurs :
+import { traitement_cart_jeux } from "./cards.js"
 
 const moi = {
     nom : "batal",
@@ -15,9 +16,13 @@ const adversaire = {
     equipe 
 }
 
-moi.moncart = JSON.parse(localStorage.getItem('mycartes'));
+let moncart = JSON.parse(localStorage.getItem('mycartes'));
 moi.deck = JSON.parse(localStorage.getItem('mydeck'));
-adversaire.moncart = JSON.parse(localStorage.getItem('mycartes'));
+
+moi.moncart = traitement_cart_jeux(moncart, moi.deck);
+
+// export let cart_moi_game = [...moi.moncart];
+
 
 // donnes de les joueurs :
 while (adversaire.deck.length < 5) {
@@ -28,6 +33,9 @@ while (adversaire.deck.length < 5) {
         continue;
     }   
 }
+
+adversaire.moncart = traitement_cart_jeux(moncart, adversaire.deck);
+
 localStorage.setItem("adversaire", JSON.stringify(adversaire))
 localStorage.setItem("moi", JSON.stringify(moi))
 

@@ -9,6 +9,10 @@ import { max_diff, max_att, id_for_play, aleratoire_choix} from "./opponent.js";
 const moi = JSON.parse(localStorage.getItem("moi"));
 const advversaire = JSON.parse(localStorage.getItem("adversaire"))
 
+// export const arr = advversaire.deck ;
+console.log(advversaire.deck);
+
+
 
 
 const Modal = document.querySelector("#Modal");
